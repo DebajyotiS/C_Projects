@@ -1,0 +1,37 @@
+/*Print the number of integers whose sum of squares is a given number*/
+/*18-11-16*/
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int a,b,c,e,g=0;
+    FILE *f;
+    f=fopen("micout.text","a");
+    
+        printf("Enter the eingenvalue: \n");
+        scanf("%d",&e);
+        
+        for(a=0;a<= pow(e,0.5);a++)
+        {
+            for(b=0;b<= pow(e,0.5);b++)
+            {
+                for (c=0;c<= pow(e,0.5);c++)
+                {
+                    if ( a*a + b*b + c*c == e)
+                    {
+                        printf("The degenerate states are (%d, %d, %d)\n", a,b,c);
+                        fprintf(f,"\n\nThe degenerate states for %d are (%d, %d, %d)\n",e, a,b,c);
+                        g++;
+                    }
+                
+                }
+            }
+        }
+            printf("Total degenerate states are %d\n", g);
+            fprintf(f,"\n\nTotal degenerate states for %d are %d\n\n\n",e, g);
+    
+    fclose(f);
+}
+
+

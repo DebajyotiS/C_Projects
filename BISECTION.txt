@@ -1,0 +1,56 @@
+/*to find a root of equation using bisection method*/
+/*20-12-16*/
+
+#include<stdio.h>
+#include<math.h>
+float fun(float x);
+ main()
+{
+float x1,x2,x3,n;
+printf("\n enter the accuracy needed " );
+scanf("%f",&n);
+printf("\n enter the first initial guess ");
+scanf("%f",&x1);
+printf("\n enter the second initial guess ");
+scanf("%f",&x2);
+
+if(fun(x1)*fun(x2)<0)
+{
+ do
+ { x3=(x1+x2)/2.0;
+   if(fun(x1)*fun(x3)<0)
+    x2=x3;
+   else
+    x1=x3;
+     }while(fabs(x1-x2)>n);
+printf("The root lies between %f and %f \n",x1,x2 );
+} 
+else
+{ printf("\n try with another initial guess" );
+}
+
+}
+
+float fun(float x)
+{ 
+ float f ;
+ f=x*x-5*x+6;
+ return(f);
+}
+/*output
+ enter the accuracy needed .011
+
+ enter the first initial guess 1
+
+ enter the second initial guess 2.5
+The root lies between 1.996094 and 2.001953
+
+
+
+ enter the accuracy needed 0.001
+
+ enter the first initial guess 2.5
+
+ enter the second initial guess 6
+The root lies between 2.999878 and 3.000732*/
+

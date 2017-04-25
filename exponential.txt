@@ -1,0 +1,30 @@
+/* exponential seris*/
+/*18-11-16*/
+#include<stdio.h>
+#include<math.h>
+ int main()
+{int n;
+float t,sum=1,x,acc;
+printf("\n enter the value of x = ");
+scanf("%f",&x);
+printf("\n enter the value of accuracy = ");
+scanf("%f",&acc);
+t=1;
+n=0;
+ do{
+ 	t=t*((x)/(n+1));
+ 	n++;
+ 	sum=sum+t;
+ }
+ while(fabs(t)>acc);
+ 
+ printf("the sum of the series is = %f",sum);
+}
+
+
+/*
+enter the value of x = 1
+
+enter the value of accuracy = 0.001
+the sum of the series is = 2.718254
+*/

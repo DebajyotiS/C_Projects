@@ -1,0 +1,27 @@
+/*Program to generate Fibonacci Series and estimate the value of Golden Ratio*/
+/*20-12-16*/
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+
+{
+       	FILE *f;
+   	f = fopen("fibfile.txt", "a");
+	int i=0;
+	float a,b,c,j=0,k=1,l,fa[200];
+	printf("\n\n\n\nTerm\t\t\t\t\t\t\t\t\tRatio\n\n");
+	while(i<185)
+	{
+		l = j+k;
+		b = l/k;
+		
+		printf("%f\t\t\t\t\t\t\t\t%f\n",l,b);
+		j=k;
+		k=l;
+		i++;
+		fprintf(f,"%f\t\t\t\t\t\t\t\t%f\n",l,b);
+	}
+	fclose(f);
+	
+	
+}

@@ -1,0 +1,48 @@
+/*Lagrange's Interpolation*/
+/*20-12-16*/
+
+#include<stdio.h>
+# define m 50
+main()
+{
+	float x[m],y[m],xxj=1,xixj=1,k=0,X;
+	int i,j,n;
+	printf("\nenter number of terms in table:\n");
+	scanf("%d",&n);
+	printf("\n enter the values of x and y:\n");
+	printf("\n\nx\ty\n");
+	for(i=0;i<n;i++)
+	 { scanf(" %f%f",&x[i],&y[i]);
+	 }
+	printf("\n enter the value of x to calculate y for ");
+	scanf("%f",&X);
+		for(i=0;i<n;i++)
+		 { xxj=1;
+		   xixj=1;
+		 for(j=0;j<n;j++)
+		  {if(j!=i)
+		   { xxj=xxj*(X-x[j]);
+		     xixj=xixj*(x[i]-x[j]);
+		   }
+		 }
+		 k=k+((xxj/xixj)*y[i]);
+		}
+	printf("\n the value of variable y for given x is : %f ",k);
+}
+/*output
+
+enter number of terms in table:
+4
+
+ enter the values of x and y:
+
+
+x       y
+0.5441  3.5
+0.6020  4.0
+0.6812  4.8
+0.7482  5.6
+
+ enter the value of x to calculate y for 0.6742
+
+ the value of variable y for given x is : 4.723281*/

@@ -1,0 +1,49 @@
+/*to find a root of x^2-5x+6 using newton raphson method*/
+/*20-12-16*/
+#include<stdio.h>
+#include<math.h>
+float f(float x);
+float df(float x); 
+
+main()
+{
+float x1,x2,x3,n;
+printf("\n enter the accuracy needed " );
+scanf("%f",&n);
+printf("\n enter the first initial guess ");
+scanf("%f",&x1);
+if(df(x1)!=0)
+{
+do
+{x3=x1;
+ x2=x1-(f(x1)/df(x1));
+ x1=x2;
+}
+while(fabs(x2-x3)>n);
+printf("The root  is %f \n",x2 );
+} 
+else
+ {printf("\n try with another initial guess" );
+ }
+
+}
+
+float f(float x)
+{ 
+  return(x*x-5*x+6);
+}
+
+float df(float x)
+{ 
+  return(2*x-5);
+}
+/*output
+
+ enter the accuracy needed 0.01
+
+ enter the first initial guess 1.5
+The root  is 2.000000
+ enter the accuracy needed 0.001
+
+ enter the first initial guess 6
+The root  is 3.000000*/
